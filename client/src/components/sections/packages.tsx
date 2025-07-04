@@ -1,4 +1,5 @@
 import { MagneticButton } from '@/components/ui/magnetic-button';
+import { Link } from 'wouter';
 import { 
   RocketLaunchIcon, 
   CpuChipIcon, 
@@ -26,7 +27,8 @@ const packages = [
     ],
     variant: 'primary' as const,
     buttonText: 'Start Project',
-    delay: '0s'
+    delay: '0s',
+    slug: 'professional-starter'
   },
   {
     name: 'Enterprise Professional',
@@ -48,28 +50,30 @@ const packages = [
     variant: 'impossible' as const,
     buttonText: 'Transform Business',
     popular: true,
-    delay: '0.1s'
+    delay: '0.1s',
+    slug: 'enterprise-professional'
   },
   {
-    name: 'Enterprise Elite',
-    description: 'Unlimited Digital Excellence',
-    price: '$95,000',
-    icon: SparklesIcon,
+    name: 'Divine Impossible',
+    description: 'Transcendent Digital Experience',
+    price: '$100,000',
+    icon: StarIcon,
     gradient: 'from-purple-600 to-purple-700',
     features: [
       'Everything in Enterprise Professional',
       'AI-powered features',
-      'Machine learning integration',
-      'Advanced analytics platform',
-      'Multi-platform development',
-      'Custom enterprise solutions',
-      'Lifetime priority support',
-      'Dedicated development team',
-      'Ongoing optimization'
+      'Advanced 3D graphics',
+      'Real-time collaboration',
+      'Custom integrations',
+      'Blockchain integration',
+      'IoT connectivity',
+      'Quantum-ready architecture',
+      'Lifetime premium support'
     ],
     variant: 'primary' as const,
-    buttonText: 'Achieve Excellence',
-    delay: '0.2s'
+    buttonText: 'Transcend Reality',
+    delay: '0.2s',
+    slug: 'divine-impossible'
   }
 ];
 
@@ -135,15 +139,27 @@ export const PackagesSection = () => {
                       ))}
                     </ul>
                     
-                    <MagneticButton 
-                      variant={pkg.variant}
-                      size="lg"
-                      className="w-full"
-                      onClick={scrollToContact}
-                      magneticStrength={0.5}
-                    >
-                      {pkg.buttonText}
-                    </MagneticButton>
+                    <div className="flex flex-col gap-3">
+                      <Link href={`/package/${pkg.slug}`} className="w-full">
+                        <MagneticButton 
+                          variant={pkg.variant}
+                          size="lg"
+                          className="w-full"
+                          magneticStrength={0.5}
+                        >
+                          View Details
+                        </MagneticButton>
+                      </Link>
+                      <MagneticButton 
+                        variant="outline"
+                        size="lg"
+                        className="w-full"
+                        onClick={scrollToContact}
+                        magneticStrength={0.5}
+                      >
+                        {pkg.buttonText}
+                      </MagneticButton>
+                    </div>
                   </div>
                   
                   {/* Elegant gradient overlay */}

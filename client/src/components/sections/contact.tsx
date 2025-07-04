@@ -66,12 +66,12 @@ export const ContactSection = () => {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-20">
           <div className="cinematic-entrance">
-            <h2 className="text-5xl md:text-7xl font-thin text-[hsl(var(--gray-900))] mb-8 tracking-tight">
-              Initiate <span className="font-medium italic bg-gradient-to-r from-[hsl(var(--google-blue))] via-[hsl(var(--google-green))] to-[hsl(var(--google-yellow))] bg-clip-text text-transparent">Contact</span>
+            <h2 className="text-5xl md:text-7xl font-thin text-white mb-8 tracking-tight">
+              Initiate <span className="font-medium italic text-blue-300">Contact</span>
             </h2>
           </div>
           <div className="cinematic-entrance" style={{ animationDelay: '0.3s' }}>
-            <p className="text-2xl text-[hsl(var(--gray-700))] max-w-4xl mx-auto font-light leading-relaxed">
+            <p className="text-2xl text-white/80 max-w-4xl mx-auto font-light leading-relaxed">
               Ready to transcend the boundaries of possibility? Begin your journey into the impossible.
             </p>
           </div>
