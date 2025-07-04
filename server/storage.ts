@@ -156,6 +156,8 @@ export class MemStorage implements IStorage {
       ...insertProject, 
       id,
       createdAt: new Date(),
+      metrics: insertProject.metrics ?? null,
+      featured: insertProject.featured ?? null,
     };
     this.projects.set(id, project);
     return project;
@@ -166,8 +168,9 @@ export class MemStorage implements IStorage {
     const contact: ContactSubmission = { 
       ...insertContact, 
       id,
-      status: "new",
       createdAt: new Date(),
+      company: insertContact.company ?? null,
+      status: "new",
     };
     this.contactSubmissions.set(id, contact);
     return contact;

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'wouter';
 import { MagneticButton } from '@/components/ui/magnetic-button';
+import { ArcLabsLogo } from '@/components/ui/arc-labs-logo';
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,29 +18,9 @@ export const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3 impossible-glow">
-            <div className="relative w-12 h-12">
-              {/* Logo Background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--google-blue))] via-[hsl(var(--google-green))] to-[hsl(var(--google-yellow))] rounded-2xl levitating premium-shadow-xl"></div>
-              
-              {/* Logo Symbol */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <svg width="24" height="24" viewBox="0 0 32 32" className="text-white">
-                  <path
-                    d="M6 26 Q16 6 26 26"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    fill="none"
-                    strokeLinecap="round"
-                    className="data-stream"
-                  />
-                  <circle cx="6" cy="26" r="1.5" fill="currentColor" />
-                  <circle cx="16" cy="14" r="2" fill="currentColor" />
-                  <circle cx="26" cy="26" r="1.5" fill="currentColor" />
-                </svg>
-              </div>
-            </div>
-            <span className="text-2xl font-light text-[hsl(var(--gray-900))] tracking-wide">
+          <Link href="/" className="flex items-center space-x-3 impossible-glow group">
+            <ArcLabsLogo size="md" />
+            <span className="text-2xl font-light text-[hsl(var(--gray-900))] tracking-wide group-hover:text-[hsl(var(--google-blue))] transition-colors duration-300">
               Arc <span className="font-medium">Labs</span>
             </span>
           </Link>
@@ -84,23 +65,25 @@ export const Navbar = () => {
           <div className="md:hidden">
             <button 
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-[hsl(var(--gray-700))] hover:text-[hsl(var(--google-blue))]"
+              className="relative w-12 h-12 liquid-glassmorphism rounded-2xl flex items-center justify-center text-[hsl(var(--gray-700))] hover:text-[hsl(var(--google-blue))] transition-all duration-300 impossible-glow"
             >
-              <span className="material-icons">menu</span>
+              <span className={`material-icons transition-transform duration-300 ${isMenuOpen ? 'rotate-180' : ''}`}>
+                {isMenuOpen ? 'close' : 'menu'}
+              </span>
             </button>
           </div>
         </div>
         
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-16 left-0 right-0 bg-white border-t border-[hsl(var(--border))] py-4">
-            <div className="flex flex-col space-y-4 px-4">
+          <div className="md:hidden absolute top-20 left-0 right-0 liquid-glassmorphism border-t border-white/20 py-8 backdrop-blur-xl">
+            <div className="flex flex-col space-y-6 px-6">
               <button 
                 onClick={() => {
                   scrollToSection('services');
                   setIsMenuOpen(false);
                 }}
-                className="text-left text-[hsl(var(--gray-700))] hover:text-[hsl(var(--google-blue))] transition-colors duration-200"
+                className="text-left text-[hsl(var(--gray-700))] hover:text-[hsl(var(--google-blue))] transition-all duration-300 font-light text-lg predictive-hint py-2"
               >
                 Services
               </button>
@@ -109,7 +92,7 @@ export const Navbar = () => {
                   scrollToSection('why-us');
                   setIsMenuOpen(false);
                 }}
-                className="text-left text-[hsl(var(--gray-700))] hover:text-[hsl(var(--google-blue))] transition-colors duration-200"
+                className="text-left text-[hsl(var(--gray-700))] hover:text-[hsl(var(--google-blue))] transition-all duration-300 font-light text-lg predictive-hint py-2"
               >
                 Why Us
               </button>
@@ -118,28 +101,33 @@ export const Navbar = () => {
                   scrollToSection('packages');
                   setIsMenuOpen(false);
                 }}
-                className="text-left text-[hsl(var(--gray-700))] hover:text-[hsl(var(--google-blue))] transition-colors duration-200"
+                className="text-left text-[hsl(var(--gray-700))] hover:text-[hsl(var(--google-blue))] transition-all duration-300 font-light text-lg predictive-hint py-2"
               >
-                Packages
+                Solutions
               </button>
               <button 
                 onClick={() => {
                   scrollToSection('portfolio');
                   setIsMenuOpen(false);
                 }}
-                className="text-left text-[hsl(var(--gray-700))] hover:text-[hsl(var(--google-blue))] transition-colors duration-200"
+                className="text-left text-[hsl(var(--gray-700))] hover:text-[hsl(var(--google-blue))] transition-all duration-300 font-light text-lg predictive-hint py-2"
               >
                 Portfolio
               </button>
-              <MagneticButton 
-                onClick={() => {
-                  scrollToSection('contact');
-                  setIsMenuOpen(false);
-                }}
-                className="w-full"
-              >
-                Get Started
-              </MagneticButton>
+              <div className="pt-4">
+                <MagneticButton 
+                  variant="primary"
+                  size="md"
+                  onClick={() => {
+                    scrollToSection('contact');
+                    setIsMenuOpen(false);
+                  }}
+                  className="w-full"
+                  magneticStrength={0.3}
+                >
+                  Start Project
+                </MagneticButton>
+              </div>
             </div>
           </div>
         )}

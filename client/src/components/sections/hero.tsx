@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { MagneticButton } from '@/components/ui/magnetic-button';
-import { PremiumLogo } from '@/components/ui/premium-logo';
+import { ArcLabsLogo } from '@/components/ui/arc-labs-logo';
 import { ParticleBackground } from '@/components/3d/particle-background';
 import { initScrollAnimations } from '@/lib/gsap-animations';
 
@@ -30,7 +30,9 @@ export const HeroSection = () => {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center">
-          <PremiumLogo />
+          <div className="mb-16">
+            <ArcLabsLogo size="xl" />
+          </div>
           
           <div className="cinematic-entrance" style={{ animationDelay: '0.3s' }}>
             <h1 className="text-6xl md:text-8xl lg:text-9xl font-thin text-[hsl(var(--gray-900))] mb-8 leading-tight tracking-tight">
