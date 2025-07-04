@@ -10,7 +10,8 @@ export const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
-      setIsScrolled(scrollTop > 50);
+      const heroHeight = window.innerHeight * 0.8; // Approximate hero section height
+      setIsScrolled(scrollTop > heroHeight);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -36,7 +37,7 @@ export const Navbar = () => {
           <Link href="/" className="flex items-center space-x-3 group">
             <DivineLogo size="md" />
             <span className={`text-2xl font-semibold tracking-wide group-hover:text-blue-300 transition-colors duration-300 ${
-              isScrolled ? 'text-white' : 'text-white'
+              isScrolled ? 'text-slate-900' : 'text-white'
             }`}>
               Arc <span className="font-light">Labs</span>
             </span>
@@ -46,32 +47,32 @@ export const Navbar = () => {
           <div className="hidden md:flex items-center space-x-8">
             <button 
               onClick={() => scrollToSection('services')}
-              className={`hover:text-blue-300 transition-all duration-300 font-medium text-lg ${
-                isScrolled ? 'text-white' : 'text-white'
+              className={`hover:text-blue-600 transition-all duration-300 font-medium text-lg ${
+                isScrolled ? 'text-slate-900' : 'text-white'
               }`}
             >
               Services
             </button>
             <button 
               onClick={() => scrollToSection('why-us')}
-              className={`hover:text-blue-300 transition-all duration-300 font-medium text-lg ${
-                isScrolled ? 'text-white' : 'text-white'
+              className={`hover:text-blue-600 transition-all duration-300 font-medium text-lg ${
+                isScrolled ? 'text-slate-900' : 'text-white'
               }`}
             >
               Why Us
             </button>
             <button 
               onClick={() => scrollToSection('packages')}
-              className={`hover:text-blue-300 transition-all duration-300 font-medium text-lg ${
-                isScrolled ? 'text-white' : 'text-white'
+              className={`hover:text-blue-600 transition-all duration-300 font-medium text-lg ${
+                isScrolled ? 'text-slate-900' : 'text-white'
               }`}
             >
               Solutions
             </button>
             <button 
               onClick={() => scrollToSection('portfolio')}
-              className={`hover:text-blue-300 transition-all duration-300 font-medium text-lg ${
-                isScrolled ? 'text-white' : 'text-white'
+              className={`hover:text-blue-600 transition-all duration-300 font-medium text-lg ${
+                isScrolled ? 'text-slate-900' : 'text-white'
               }`}
             >
               Portfolio

@@ -114,8 +114,9 @@ export const PackagesSection = () => {
                   </div>
                 )}
                 
-                <div className={`relative bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-105 h-full ${pkg.popular ? 'ring-2 ring-indigo-500/20' : ''}`}>
-                  <div className="p-8">
+                <Link href={`/package/${pkg.slug}`} className="block h-full">
+                  <div className={`relative bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-105 h-full cursor-pointer ${pkg.popular ? 'ring-2 ring-indigo-500/20' : ''}`}>
+                    <div className="p-8">
                     <div className="text-center mb-8">
                       <div className={`w-20 h-20 bg-gradient-to-br ${pkg.gradient} rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-500`}>
                         <IconComponent className="w-10 h-10 text-white" />
@@ -139,32 +140,15 @@ export const PackagesSection = () => {
                       ))}
                     </ul>
                     
-                    <div className="flex flex-col gap-3">
-                      <Link href={`/package/${pkg.slug}`} className="w-full">
-                        <MagneticButton 
-                          variant={pkg.variant}
-                          size="lg"
-                          className="w-full"
-                          magneticStrength={0.5}
-                        >
-                          View Details
-                        </MagneticButton>
-                      </Link>
-                      <MagneticButton 
-                        variant="outline"
-                        size="lg"
-                        className="w-full"
-                        onClick={scrollToContact}
-                        magneticStrength={0.5}
-                      >
-                        {pkg.buttonText}
-                      </MagneticButton>
+                      <div className="text-center">
+                        <p className="text-slate-600 text-sm font-medium">Click card for full details</p>
+                      </div>
                     </div>
+                    
+                    {/* Elegant gradient overlay */}
+                    <div className={`absolute inset-0 bg-gradient-to-br ${pkg.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500 pointer-events-none`}></div>
                   </div>
-                  
-                  {/* Elegant gradient overlay */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${pkg.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500 pointer-events-none`}></div>
-                </div>
+                </Link>
               </div>
             );
           })}

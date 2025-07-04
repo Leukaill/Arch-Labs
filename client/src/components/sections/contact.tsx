@@ -87,7 +87,7 @@ export const ContactSection = () => {
                     name="firstName"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-base font-medium text-[hsl(var(--gray-700))] mb-3 block">First Name</FormLabel>
+                        <FormLabel className="text-base font-medium text-white mb-3 block">First Name</FormLabel>
                         <FormControl>
                           <Input 
                             placeholder="Your neural identifier..." 
@@ -104,7 +104,7 @@ export const ContactSection = () => {
                     name="lastName"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-base font-medium text-[hsl(var(--gray-700))] mb-3 block">Last Name</FormLabel>
+                        <FormLabel className="text-base font-medium text-white mb-3 block">Last Name</FormLabel>
                         <FormControl>
                           <Input 
                             placeholder="Your quantum signature..." 
@@ -124,7 +124,7 @@ export const ContactSection = () => {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-base font-medium text-[hsl(var(--gray-700))] mb-3 block">Neural Link</FormLabel>
+                        <FormLabel className="text-base font-medium text-white mb-3 block">Email</FormLabel>
                         <FormControl>
                           <Input 
                             type="email"
@@ -143,7 +143,7 @@ export const ContactSection = () => {
                     name="company"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-base font-medium text-[hsl(var(--gray-700))] mb-3 block">Organization Matrix</FormLabel>
+                        <FormLabel className="text-base font-medium text-white mb-3 block">Company</FormLabel>
                         <FormControl>
                           <Input 
                             placeholder="Your dimensional corporation..." 
@@ -162,7 +162,7 @@ export const ContactSection = () => {
                   name="projectType"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-base font-medium text-[hsl(var(--gray-700))] mb-3 block">Reality Shift Type</FormLabel>
+                      <FormLabel className="text-base font-medium text-white mb-3 block">Project Type</FormLabel>
                       <Select onValueChange={field.onChange} defaultValue={field.value}>
                         <FormControl>
                           <SelectTrigger className="w-full px-6 py-4 border-2 border-white/20 rounded-2xl bg-white/5 backdrop-blur-md focus:outline-none focus:ring-2 focus:ring-[hsl(var(--google-blue))] focus:border-transparent transition-all duration-300 text-lg">
@@ -187,7 +187,7 @@ export const ContactSection = () => {
                   name="projectDetails"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-base font-medium text-[hsl(var(--gray-700))] mb-3 block">Describe Your Impossible Vision</FormLabel>
+                      <FormLabel className="text-base font-medium text-white mb-3 block">Project Details</FormLabel>
                       <FormControl>
                         <Textarea 
                           rows={6}

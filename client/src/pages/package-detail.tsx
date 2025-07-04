@@ -212,8 +212,43 @@ export default function PackageDetail() {
   
   const IconComponent = packageInfo.icon;
   
+  const getThemeColors = () => {
+    switch (packageId) {
+      case 'professional-starter':
+        return {
+          bg: 'from-blue-900 via-slate-900 to-blue-900',
+          accent: 'text-blue-300',
+          card: 'bg-blue-900/20',
+          button: 'from-blue-600 to-blue-700'
+        };
+      case 'enterprise-professional':
+        return {
+          bg: 'from-indigo-900 via-purple-900 to-indigo-900',
+          accent: 'text-indigo-300',
+          card: 'bg-indigo-900/20',
+          button: 'from-indigo-600 to-purple-600'
+        };
+      case 'divine-impossible':
+        return {
+          bg: 'from-purple-900 via-pink-900 to-purple-900',
+          accent: 'text-purple-300',
+          card: 'bg-purple-900/20',
+          button: 'from-purple-600 to-pink-600'
+        };
+      default:
+        return {
+          bg: 'from-slate-900 via-purple-900 to-slate-900',
+          accent: 'text-blue-300',
+          card: 'bg-white/5',
+          button: 'from-blue-600 to-blue-700'
+        };
+    }
+  };
+  
+  const theme = getThemeColors();
+  
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
+    <div className={`min-h-screen bg-gradient-to-br ${theme.bg} relative overflow-hidden`}>
       <ParticleBackground />
       
       <div className="relative z-10 pt-24 pb-16">
@@ -227,8 +262,8 @@ export default function PackageDetail() {
           {/* Header */}
           <div className="text-center mb-16">
             <div className="flex justify-center mb-8">
-              <div className="p-6 rounded-full bg-white/5 backdrop-blur-lg border border-white/10">
-                <IconComponent className="w-16 h-16 text-blue-300" />
+              <div className={`p-6 rounded-full ${theme.card} backdrop-blur-lg border border-white/10`}>
+                <IconComponent className={`w-16 h-16 ${theme.accent}`} />
               </div>
             </div>
             
@@ -240,7 +275,7 @@ export default function PackageDetail() {
               {packageInfo.description}
             </p>
             
-            <div className="text-4xl md:text-6xl font-bold text-blue-300 mb-8">
+            <div className={`text-4xl md:text-6xl font-bold ${theme.accent} mb-8`}>
               {packageInfo.price}
             </div>
             
@@ -259,44 +294,57 @@ export default function PackageDetail() {
             </MagneticButton>
           </div>
           
-          {/* Package Overview */}
-          <div className="grid lg:grid-cols-3 gap-8 mb-16">
-            <GlassmorphismCard variant="liquid" className="p-8">
-              <h3 className="text-2xl font-bold text-white mb-4">Timeline</h3>
-              <p className="text-white/80 text-lg">{packageInfo.timeline}</p>
-            </GlassmorphismCard>
+          {/* Key Metrics */}
+          <div className="grid lg:grid-cols-4 gap-6 mb-16">
+            <div className={`${theme.card} backdrop-blur-lg border border-white/10 rounded-2xl p-6 text-center`}>
+              <div className={`text-3xl font-bold ${theme.accent} mb-2`}>{packageInfo.timeline}</div>
+              <div className="text-white/80">Delivery Time</div>
+            </div>
             
-            <GlassmorphismCard variant="liquid" className="p-8">
-              <h3 className="text-2xl font-bold text-white mb-4">Ideal For</h3>
-              <p className="text-white/80 text-lg">{packageInfo.ideal}</p>
-            </GlassmorphismCard>
+            <div className={`${theme.card} backdrop-blur-lg border border-white/10 rounded-2xl p-6 text-center`}>
+              <div className={`text-3xl font-bold ${theme.accent} mb-2`}>{packageInfo.deliverables.length}</div>
+              <div className="text-white/80">Deliverables</div>
+            </div>
             
-            <GlassmorphismCard variant="liquid" className="p-8">
-              <h3 className="text-2xl font-bold text-white mb-4">Deliverables</h3>
-              <p className="text-white/80 text-lg">{packageInfo.deliverables.length} key deliverables</p>
-            </GlassmorphismCard>
+            <div className={`${theme.card} backdrop-blur-lg border border-white/10 rounded-2xl p-6 text-center`}>
+              <div className={`text-3xl font-bold ${theme.accent} mb-2`}>24/7</div>
+              <div className="text-white/80">Support</div>
+            </div>
+            
+            <div className={`${theme.card} backdrop-blur-lg border border-white/10 rounded-2xl p-6 text-center`}>
+              <div className={`text-3xl font-bold ${theme.accent} mb-2`}>100%</div>
+              <div className="text-white/80">Satisfaction</div>
+            </div>
           </div>
           
+          {/* Value Proposition */}
+          <div className="mb-16 text-center">
+            <h2 className="text-4xl font-bold text-white mb-8">Why This Package Changes Everything</h2>
+            <p className="text-xl text-white/80 max-w-4xl mx-auto leading-relaxed">
+              {packageInfo.ideal}
+            </p>
+          </div>
+
           {/* Detailed Features */}
           <div className="mb-16">
-            <h2 className="text-4xl font-bold text-white text-center mb-12">What's Included</h2>
+            <h2 className="text-4xl font-bold text-white text-center mb-12">Complete Feature Breakdown</h2>
             
             <div className="grid md:grid-cols-2 gap-8">
               {Object.entries(packageInfo.detailedFeatures).map(([category, features]) => (
-                <GlassmorphismCard key={category} variant="liquid" className="p-8">
-                  <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-                    <SparklesIcon className="w-6 h-6 mr-3 text-blue-300" />
+                <div key={category} className={`${theme.card} backdrop-blur-lg border border-white/10 rounded-2xl p-8 hover:border-white/20 transition-all duration-300`}>
+                  <h3 className={`text-2xl font-bold text-white mb-6 flex items-center`}>
+                    <SparklesIcon className={`w-6 h-6 mr-3 ${theme.accent}`} />
                     {category}
                   </h3>
                   <ul className="space-y-4">
                     {features.map((feature, index) => (
                       <li key={index} className="flex items-start">
-                        <CheckIcon className="w-5 h-5 text-green-400 mr-3 mt-0.5 flex-shrink-0" />
-                        <span className="text-white/80">{feature}</span>
+                        <CheckIcon className={`w-5 h-5 ${theme.accent} mr-3 mt-0.5 flex-shrink-0`} />
+                        <span className="text-white/90 font-medium">{feature}</span>
                       </li>
                     ))}
                   </ul>
-                </GlassmorphismCard>
+                </div>
               ))}
             </div>
           </div>
@@ -317,40 +365,60 @@ export default function PackageDetail() {
             </GlassmorphismCard>
           </div>
           
-          {/* CTA Section */}
+          {/* Guarantee & CTA Section */}
           <div className="text-center">
-            <GlassmorphismCard variant="liquid" className="p-12">
-              <h2 className="text-4xl font-bold text-white mb-6">Ready to Begin?</h2>
-              <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-                Transform your digital presence with our {packageInfo.name} package. 
-                Let's create something extraordinary together.
+            <div className={`${theme.card} backdrop-blur-lg border border-white/10 rounded-3xl p-12`}>
+              <div className="mb-8">
+                <div className={`inline-flex items-center px-6 py-3 rounded-full ${theme.card} border border-white/20 mb-6`}>
+                  <CheckIcon className={`w-5 h-5 ${theme.accent} mr-2`} />
+                  <span className="text-white font-semibold">30-Day Money-Back Guarantee</span>
+                </div>
+              </div>
+              
+              <h2 className="text-4xl font-bold text-white mb-6">Ready to Transform Your Business?</h2>
+              <p className="text-xl text-white/80 mb-8 max-w-3xl mx-auto">
+                Join hundreds of satisfied clients who've revolutionized their digital presence. 
+                Your success is our commitment - guaranteed.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <MagneticButton
-                  variant="primary"
-                  size="xl"
-                  onClick={() => {
-                    const contactSection = document.getElementById('contact');
-                    if (contactSection) {
-                      contactSection.scrollIntoView({ behavior: 'smooth' });
-                    }
-                  }}
-                >
-                  Start Your Project
-                </MagneticButton>
+                <Link href="/#contact">
+                  <MagneticButton
+                    variant="primary"
+                    size="xl"
+                    className={`bg-gradient-to-r ${theme.button} hover:scale-105 transform transition-all duration-300`}
+                  >
+                    Start Your Project Today
+                  </MagneticButton>
+                </Link>
                 
                 <MagneticButton
                   variant="outline"
                   size="xl"
+                  className="border-white/30 text-white hover:bg-white/10"
                   onClick={() => {
                     window.location.href = 'mailto:contact@arclabs.com?subject=Package Inquiry: ' + packageInfo.name;
                   }}
                 >
-                  Ask Questions
+                  Schedule Consultation
                 </MagneticButton>
               </div>
-            </GlassmorphismCard>
+              
+              <div className="mt-8 flex justify-center items-center space-x-6 text-sm text-white/60">
+                <div className="flex items-center">
+                  <CheckIcon className="w-4 h-4 mr-1" />
+                  No Hidden Fees
+                </div>
+                <div className="flex items-center">
+                  <CheckIcon className="w-4 h-4 mr-1" />
+                  Lifetime Support
+                </div>
+                <div className="flex items-center">
+                  <CheckIcon className="w-4 h-4 mr-1" />
+                  Source Code Included
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
