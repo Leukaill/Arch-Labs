@@ -27,12 +27,12 @@ export const Navbar = () => {
 
   return (
     <nav className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500">
-      <div className="bg-white/90 backdrop-blur-xl border border-gray-200/50 rounded-full shadow-lg px-8 py-4">
+      <div className="liquid-glassmorphism rounded-full shadow-lg px-8 py-4 border border-white/20"></div>
         <div className="flex items-center space-x-12">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3 group">
             <DivineLogo size="md" />
-            <span className="text-xl font-semibold tracking-wide text-slate-900 group-hover:text-blue-600 transition-colors duration-300">
+            <span className="text-xl font-semibold tracking-wide text-white/90 group-hover:text-blue-300 transition-colors duration-300 drop-shadow-lg">
               Arc <span className="font-light">Labs</span>
             </span>
           </Link>
@@ -41,25 +41,25 @@ export const Navbar = () => {
           <div className="hidden md:flex items-center space-x-8">
             <button 
               onClick={() => scrollToSection('services')}
-              className="text-slate-900 hover:text-blue-600 transition-all duration-300 font-medium text-sm"
+              className="text-white/90 hover:text-blue-300 transition-all duration-300 font-medium text-sm drop-shadow-lg"
             >
               Services
             </button>
             <button 
               onClick={() => scrollToSection('why-us')}
-              className="text-slate-900 hover:text-blue-600 transition-all duration-300 font-medium text-sm"
+              className="text-white/90 hover:text-blue-300 transition-all duration-300 font-medium text-sm drop-shadow-lg"
             >
               Why Us
             </button>
             <button 
               onClick={() => scrollToSection('packages')}
-              className="text-slate-900 hover:text-blue-600 transition-all duration-300 font-medium text-sm"
+              className="text-white/90 hover:text-blue-300 transition-all duration-300 font-medium text-sm drop-shadow-lg"
             >
               Solutions
             </button>
             <button 
               onClick={() => scrollToSection('portfolio')}
-              className="text-slate-900 hover:text-blue-600 transition-all duration-300 font-medium text-sm"
+              className="text-white/90 hover:text-blue-300 transition-all duration-300 font-medium text-sm drop-shadow-lg"
             >
               Portfolio
             </button>
@@ -77,7 +77,7 @@ export const Navbar = () => {
           <div className="md:hidden">
             <button 
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="relative w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-slate-900 hover:text-blue-600 transition-all duration-300"
+              className="relative w-10 h-10 bg-white/20 backdrop-blur-lg rounded-full flex items-center justify-center text-white/90 hover:text-blue-300 transition-all duration-300"
             >
               <svg className={`w-5 h-5 transition-transform duration-300 ${isMenuOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {isMenuOpen ? (
@@ -93,14 +93,14 @@ export const Navbar = () => {
         
         {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden absolute top-20 left-1/2 transform -translate-x-1/2 bg-white/95 backdrop-blur-xl border border-gray-200/50 rounded-2xl py-6 shadow-lg min-w-[280px]">
+        <div className="md:hidden absolute top-20 left-1/2 transform -translate-x-1/2 liquid-glassmorphism border border-white/20 rounded-2xl py-6 shadow-lg min-w-[280px]">
           <div className="flex flex-col space-y-4 px-6">
             <button 
               onClick={() => {
                 scrollToSection('services');
                 setIsMenuOpen(false);
               }}
-              className="text-left text-slate-900 hover:text-blue-600 transition-all duration-300 font-medium text-sm py-2"
+              className="text-left text-white/90 hover:text-blue-300 transition-all duration-300 font-medium text-sm py-2 drop-shadow-lg"
             >
               Services
             </button>
@@ -109,7 +109,7 @@ export const Navbar = () => {
                 scrollToSection('why-us');
                 setIsMenuOpen(false);
               }}
-              className="text-left text-slate-900 hover:text-blue-600 transition-all duration-300 font-medium text-sm py-2"
+              className="text-left text-white/90 hover:text-blue-300 transition-all duration-300 font-medium text-sm py-2 drop-shadow-lg"
             >
               Why Us
             </button>
@@ -118,7 +118,7 @@ export const Navbar = () => {
                 scrollToSection('packages');
                 setIsMenuOpen(false);
               }}
-              className="text-left text-slate-900 hover:text-blue-600 transition-all duration-300 font-medium text-sm py-2"
+              className="text-left text-white/90 hover:text-blue-300 transition-all duration-300 font-medium text-sm py-2 drop-shadow-lg"
             >
               Solutions
             </button>
@@ -127,7 +127,7 @@ export const Navbar = () => {
                 scrollToSection('portfolio');
                 setIsMenuOpen(false);
               }}
-              className="text-left text-slate-900 hover:text-blue-600 transition-all duration-300 font-medium text-sm py-2"
+              className="text-left text-white/90 hover:text-blue-300 transition-all duration-300 font-medium text-sm py-2 drop-shadow-lg"
             >
               Portfolio
             </button>
