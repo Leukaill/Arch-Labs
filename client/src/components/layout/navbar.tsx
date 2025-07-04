@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'wouter';
 import { MagneticButton } from '@/components/ui/magnetic-button';
-import { ArcLabsLogo } from '@/components/ui/arc-labs-logo';
+import { DivineLogo } from '@/components/ui/divine-logo';
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,14 +14,14 @@ export const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 w-full z-50 liquid-glassmorphism border-b border-white/10">
+    <nav className="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-200/50 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3 impossible-glow group">
-            <ArcLabsLogo size="md" />
-            <span className="text-2xl font-light text-[hsl(var(--gray-900))] tracking-wide group-hover:text-[hsl(var(--google-blue))] transition-colors duration-300">
-              Arc <span className="font-medium">Labs</span>
+          <Link href="/" className="flex items-center space-x-3 group">
+            <DivineLogo size="md" />
+            <span className="text-2xl font-semibold text-slate-900 tracking-wide group-hover:text-blue-600 transition-colors duration-300">
+              Arc <span className="font-light">Labs</span>
             </span>
           </Link>
           
@@ -29,25 +29,25 @@ export const Navbar = () => {
           <div className="hidden md:flex items-center space-x-8">
             <button 
               onClick={() => scrollToSection('services')}
-              className="text-[hsl(var(--gray-700))] hover:text-[hsl(var(--google-blue))] transition-all duration-300 font-light text-lg predictive-hint future-magnetic"
+              className="text-slate-700 hover:text-blue-600 transition-all duration-300 font-medium text-lg"
             >
               Services
             </button>
             <button 
               onClick={() => scrollToSection('why-us')}
-              className="text-[hsl(var(--gray-700))] hover:text-[hsl(var(--google-blue))] transition-all duration-300 font-light text-lg predictive-hint future-magnetic"
+              className="text-slate-700 hover:text-blue-600 transition-all duration-300 font-medium text-lg"
             >
               Why Us
             </button>
             <button 
               onClick={() => scrollToSection('packages')}
-              className="text-[hsl(var(--gray-700))] hover:text-[hsl(var(--google-blue))] transition-all duration-300 font-light text-lg predictive-hint future-magnetic"
+              className="text-slate-700 hover:text-blue-600 transition-all duration-300 font-medium text-lg"
             >
               Solutions
             </button>
             <button 
               onClick={() => scrollToSection('portfolio')}
-              className="text-[hsl(var(--gray-700))] hover:text-[hsl(var(--google-blue))] transition-all duration-300 font-light text-lg predictive-hint future-magnetic"
+              className="text-slate-700 hover:text-blue-600 transition-all duration-300 font-medium text-lg"
             >
               Portfolio
             </button>
@@ -65,25 +65,29 @@ export const Navbar = () => {
           <div className="md:hidden">
             <button 
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="relative w-12 h-12 liquid-glassmorphism rounded-2xl flex items-center justify-center text-[hsl(var(--gray-700))] hover:text-[hsl(var(--google-blue))] transition-all duration-300 impossible-glow"
+              className="relative w-12 h-12 bg-white/80 backdrop-blur-md rounded-xl flex items-center justify-center text-slate-700 hover:text-blue-600 transition-all duration-300 shadow-md"
             >
-              <span className={`material-icons transition-transform duration-300 ${isMenuOpen ? 'rotate-180' : ''}`}>
-                {isMenuOpen ? 'close' : 'menu'}
-              </span>
+              <svg className={`w-6 h-6 transition-transform duration-300 ${isMenuOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {isMenuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
             </button>
           </div>
         </div>
         
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-20 left-0 right-0 liquid-glassmorphism border-t border-white/20 py-8 backdrop-blur-xl">
+          <div className="md:hidden absolute top-20 left-0 right-0 bg-white/95 backdrop-blur-xl border-t border-gray-200/50 py-8 shadow-lg">
             <div className="flex flex-col space-y-6 px-6">
               <button 
                 onClick={() => {
                   scrollToSection('services');
                   setIsMenuOpen(false);
                 }}
-                className="text-left text-[hsl(var(--gray-700))] hover:text-[hsl(var(--google-blue))] transition-all duration-300 font-light text-lg predictive-hint py-2"
+                className="text-left text-slate-700 hover:text-blue-600 transition-all duration-300 font-medium text-lg py-2"
               >
                 Services
               </button>
@@ -92,7 +96,7 @@ export const Navbar = () => {
                   scrollToSection('why-us');
                   setIsMenuOpen(false);
                 }}
-                className="text-left text-[hsl(var(--gray-700))] hover:text-[hsl(var(--google-blue))] transition-all duration-300 font-light text-lg predictive-hint py-2"
+                className="text-left text-slate-700 hover:text-blue-600 transition-all duration-300 font-medium text-lg py-2"
               >
                 Why Us
               </button>
@@ -101,7 +105,7 @@ export const Navbar = () => {
                   scrollToSection('packages');
                   setIsMenuOpen(false);
                 }}
-                className="text-left text-[hsl(var(--gray-700))] hover:text-[hsl(var(--google-blue))] transition-all duration-300 font-light text-lg predictive-hint py-2"
+                className="text-left text-slate-700 hover:text-blue-600 transition-all duration-300 font-medium text-lg py-2"
               >
                 Solutions
               </button>
@@ -110,7 +114,7 @@ export const Navbar = () => {
                   scrollToSection('portfolio');
                   setIsMenuOpen(false);
                 }}
-                className="text-left text-[hsl(var(--gray-700))] hover:text-[hsl(var(--google-blue))] transition-all duration-300 font-light text-lg predictive-hint py-2"
+                className="text-left text-slate-700 hover:text-blue-600 transition-all duration-300 font-medium text-lg py-2"
               >
                 Portfolio
               </button>

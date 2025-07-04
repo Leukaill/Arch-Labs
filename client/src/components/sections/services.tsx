@@ -1,68 +1,88 @@
+import { 
+  CpuChipIcon, 
+  ShoppingBagIcon, 
+  GlobeAltIcon, 
+  CloudIcon,
+  DevicePhoneMobileIcon,
+  CogIcon
+} from '@heroicons/react/24/outline';
 import { GlassmorphismCard } from '@/components/ui/glassmorphism-card';
 
 const services = [
   {
-    icon: 'psychology',
-    title: 'AI-Powered Applications',
-    description: 'Revolutionary applications that harness artificial intelligence to deliver experiences that feel impossible and exceed every expectation.',
-    gradient: 'from-[hsl(var(--google-blue))] to-blue-600',
+    icon: CpuChipIcon,
+    title: 'Custom Web Applications',
+    description: 'Tailored web applications built with cutting-edge technology to meet your specific business requirements and scale with your growth.',
+    gradient: 'from-blue-600 to-blue-700',
     delay: '0s'
   },
   {
-    icon: 'rocket_launch',
-    title: 'Quantum E-commerce',
-    description: 'Next-generation online stores with neural payment processing, predictive UX, and conversion rates that defy industry standards.',
-    gradient: 'from-[hsl(var(--google-green))] to-green-600',
+    icon: ShoppingBagIcon,
+    title: 'E-commerce Solutions',
+    description: 'Complete online stores with secure payment processing, inventory management, and conversion-optimized design for maximum sales.',
+    gradient: 'from-green-600 to-green-700',
     delay: '0.1s'
   },
   {
-    icon: 'auto_awesome',
-    title: 'Holographic Interfaces',
-    description: 'Three-dimensional web experiences that blur the line between digital and reality, creating truly immersive user journeys.',
-    gradient: 'from-[hsl(var(--google-yellow))] to-yellow-600',
+    icon: GlobeAltIcon,
+    title: 'Enterprise Websites',
+    description: 'Professional corporate websites with advanced CMS, SEO optimization, and robust security features for established businesses.',
+    gradient: 'from-purple-600 to-purple-700',
     delay: '0.2s'
   },
   {
-    icon: 'electrical_services',
-    title: 'Neural Architecture',
-    description: 'Self-evolving platforms that learn, adapt, and optimize themselves, delivering performance that grows smarter over time.',
-    gradient: 'from-[hsl(var(--google-red))] to-red-600',
+    icon: CloudIcon,
+    title: 'Cloud Integration',
+    description: 'Seamless cloud architecture with automated scaling, backup solutions, and enterprise-grade security for reliable performance.',
+    gradient: 'from-indigo-600 to-indigo-700',
     delay: '0.3s'
+  },
+  {
+    icon: DevicePhoneMobileIcon,
+    title: 'Mobile-First Design',
+    description: 'Responsive designs that deliver exceptional user experiences across all devices with progressive web app capabilities.',
+    gradient: 'from-pink-600 to-pink-700',
+    delay: '0.4s'
+  },
+  {
+    icon: CogIcon,
+    title: 'API Development',
+    description: 'Custom APIs and integrations that connect your systems, automate workflows, and enhance your digital infrastructure.',
+    gradient: 'from-orange-600 to-orange-700',
+    delay: '0.5s'
   }
 ];
 
 export const ServicesSection = () => {
   return (
-    <section id="services" className="services-section py-32 relative overflow-hidden neural-network-bg">
+    <section id="services" className="services-section py-32 relative overflow-hidden bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-20">
-          <div className="cinematic-entrance">
-            <h2 className="text-5xl md:text-7xl font-thin text-[hsl(var(--gray-900))] mb-8 tracking-tight">
-              Impossible <span className="font-medium italic bg-gradient-to-r from-[hsl(var(--google-blue))] to-[hsl(var(--google-green))] bg-clip-text text-transparent">Solutions</span>
-            </h2>
-          </div>
-          <div className="cinematic-entrance" style={{ animationDelay: '0.3s' }}>
-            <p className="text-2xl text-[hsl(var(--gray-700))] max-w-4xl mx-auto font-light leading-relaxed">
-              We don't just build websites. We architect digital realities that redefine what's possible in the web universe.
-            </p>
-          </div>
+          <h2 className="text-5xl md:text-6xl font-bold text-slate-900 mb-8 tracking-tight">
+            Our <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">Services</span>
+          </h2>
+          <p className="text-2xl text-slate-700 max-w-4xl mx-auto font-medium leading-relaxed">
+            We deliver comprehensive web solutions that drive business growth and exceed expectations.
+          </p>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className="cinematic-entrance"
-              style={{ animationDelay: service.delay }}
-            >
-              <GlassmorphismCard 
-                variant="impossible" 
-                className="service-card text-center h-full group cursor-pointer"
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => {
+            const IconComponent = service.icon;
+            return (
+              <div
+                key={index}
+                className="cinematic-entrance"
+                style={{ animationDelay: service.delay }}
               >
-                <div className="relative mb-8">
-                  <div className={`w-20 h-20 bg-gradient-to-br ${service.gradient} rounded-3xl flex items-center justify-center mx-auto levitating premium-shadow-xl group-hover:scale-110 transition-transform duration-500`}>
-                    <span className="material-icons text-white text-3xl">{service.icon}</span>
-                  </div>
+                <GlassmorphismCard 
+                  variant="impossible" 
+                  className="service-card text-center h-full group cursor-pointer"
+                >
+                  <div className="relative mb-8">
+                    <div className={`w-20 h-20 bg-gradient-to-br ${service.gradient} rounded-3xl flex items-center justify-center mx-auto levitating premium-shadow-xl group-hover:scale-110 transition-transform duration-500`}>
+                      <IconComponent className="w-10 h-10 text-white" />
+                    </div>
                   
                   {/* Floating Particles */}
                   <div className="absolute -inset-4 pointer-events-none">
@@ -94,9 +114,10 @@ export const ServicesSection = () => {
                     className={`h-full bg-gradient-to-r ${service.gradient} rounded-full transform -translate-x-full group-hover:translate-x-0 transition-transform duration-1000 ease-out`}
                   ></div>
                 </div>
-              </GlassmorphismCard>
-            </div>
-          ))}
+                </GlassmorphismCard>
+              </div>
+            );
+          })}
         </div>
       </div>
       

@@ -13,10 +13,10 @@ const MagneticButton = forwardRef<HTMLButtonElement, MagneticButtonProps>(
     const magneticRef = useMagneticEffect(magneticStrength);
 
     const variants = {
-      primary: 'bg-gradient-to-r from-[hsl(var(--google-blue))] to-blue-600 text-white liquid-glassmorphism premium-shadow-xl impossible-glow',
-      secondary: 'bg-gradient-to-r from-gray-100 to-gray-200 text-[hsl(var(--gray-800))] premium-glassmorphism future-magnetic',
-      outline: 'morphing-border bg-transparent text-[hsl(var(--google-blue))] hover:bg-[hsl(var(--google-blue))] hover:text-white physics-hover',
-      impossible: 'bg-gradient-to-r from-[hsl(var(--google-blue))] via-[hsl(var(--google-green))] to-[hsl(var(--google-yellow))] text-white liquid-glassmorphism premium-shadow-xl impossible-glow neural-glow'
+      primary: 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg hover:shadow-xl border border-blue-500/20',
+      secondary: 'bg-gradient-to-r from-slate-100 to-slate-200 text-slate-900 shadow-lg hover:shadow-xl border border-slate-300/50',
+      outline: 'border-2 border-blue-600 bg-transparent text-blue-600 hover:bg-blue-600 hover:text-white shadow-lg',
+      impossible: 'bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white shadow-lg hover:shadow-xl border border-indigo-500/20'
     };
 
     const sizes = {
