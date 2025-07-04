@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { MagneticButton } from '@/components/ui/magnetic-button';
-import { FloatingLogo } from '@/components/3d/floating-logo';
+import { PremiumLogo } from '@/components/ui/premium-logo';
 import { ParticleBackground } from '@/components/3d/particle-background';
 import { initScrollAnimations } from '@/lib/gsap-animations';
 
@@ -17,43 +17,86 @@ export const HeroSection = () => {
   };
 
   return (
-    <section className="pt-24 pb-16 min-h-screen flex items-center relative overflow-hidden">
+    <section className="pt-24 pb-20 min-h-screen flex items-center relative overflow-hidden neural-network-bg">
       <ParticleBackground />
+      
+      {/* Cinematic Background Effects */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Gradient Orbs */}
+        <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-r from-[hsl(var(--google-blue))]/10 to-transparent rounded-full blur-3xl levitating"></div>
+        <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-[hsl(var(--google-green))]/10 to-transparent rounded-full blur-3xl levitating" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 left-1/2 w-72 h-72 bg-gradient-to-r from-[hsl(var(--google-yellow))]/8 to-transparent rounded-full blur-3xl levitating" style={{ animationDelay: '4s' }}></div>
+      </div>
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center">
-          <FloatingLogo />
+          <PremiumLogo />
           
-          <h1 className="hero-title text-5xl md:text-7xl font-light text-[hsl(var(--gray-900))] mb-6 leading-tight">
-            The Premier Choice for
-            <br />
-            <span className="font-medium bg-gradient-to-r from-[hsl(var(--google-blue))] to-[hsl(var(--google-green))] bg-clip-text text-transparent">
-              Enterprise Web Development
-            </span>
-          </h1>
+          <div className="cinematic-entrance" style={{ animationDelay: '0.3s' }}>
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-thin text-[hsl(var(--gray-900))] mb-8 leading-tight tracking-tight">
+              The <span className="font-light italic">Future</span> of
+              <br />
+              <span className="font-semibold bg-gradient-to-r from-[hsl(var(--google-blue))] via-[hsl(var(--google-green))] to-[hsl(var(--google-yellow))] bg-clip-text text-transparent neural-glow">
+                Web Development
+              </span>
+            </h1>
+          </div>
           
-          <p className="hero-subtitle text-xl md:text-2xl text-[hsl(var(--gray-700))] mb-12 max-w-4xl mx-auto font-light leading-relaxed">
-            We build modern, scalable web applications that drive business growth. 
-            From AI-powered solutions to enterprise platforms, Arc Labs delivers results that matter.
-          </p>
+          <div className="cinematic-entrance" style={{ animationDelay: '0.6s' }}>
+            <p className="text-2xl md:text-3xl text-[hsl(var(--gray-700))] mb-16 max-w-5xl mx-auto font-light leading-relaxed">
+              We craft <span className="font-medium text-[hsl(var(--google-blue))]">impossible</span> digital experiences that 
+              transcend expectations and redefine what's possible in web development.
+            </p>
+          </div>
           
-          <div className="hero-buttons flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="cinematic-entrance flex flex-col sm:flex-row gap-6 justify-center items-center" style={{ animationDelay: '0.9s' }}>
             <MagneticButton 
-              size="lg" 
+              variant="impossible"
+              size="xl" 
               onClick={() => scrollToSection('contact')}
-              magneticStrength={0.4}
+              magneticStrength={0.6}
             >
-              Start Your Project
+              <span className="flex items-center gap-3">
+                <span>Experience the Impossible</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </span>
             </MagneticButton>
+            
             <MagneticButton 
               variant="outline" 
-              size="lg"
+              size="xl"
               onClick={() => scrollToSection('portfolio')}
-              magneticStrength={0.4}
+              magneticStrength={0.5}
             >
-              View Our Work
+              <span className="flex items-center gap-3">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polygon points="23 7 16 12 23 17 23 7"/>
+                  <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+                </svg>
+                <span>View Impossible Work</span>
+              </span>
             </MagneticButton>
           </div>
         </div>
+      </div>
+      
+      {/* Data Streams */}
+      <div className="absolute inset-0 pointer-events-none">
+        {[...Array(5)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute data-stream opacity-30"
+            style={{
+              top: `${20 + i * 15}%`,
+              left: `${10 + i * 20}%`,
+              width: '200px',
+              height: '2px',
+              animationDelay: `${i * 0.5}s`,
+            }}
+          />
+        ))}
       </div>
     </section>
   );
